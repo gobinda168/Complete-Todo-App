@@ -1,7 +1,8 @@
 .todo-item {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
+  justify-content: space-between;
+  ;
   padding: 0px 10px;
   text-transform: uppercase;
   font: bolder larger "Roboto";
@@ -30,7 +31,6 @@
     .btn {
       background: none;
       border: none;
-      margin: 0px 1em;
       outline: none;
 
       &:hover {
@@ -42,8 +42,6 @@
 
 
   .item {
-
-    // justify-items: start;
     &:hover {
       cursor: pointer;
     }

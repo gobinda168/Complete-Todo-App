@@ -6,7 +6,9 @@ import {
   DELETE_TODO,
   UPDATE_TODO,
   EDIT_TODO,
-  CLEAR
+  CLEAR,
+  UP,
+  DOWN
 } from "../keys";
 
 export const TodoState = props => {
@@ -33,7 +35,26 @@ export const TodoState = props => {
   const clearTodo = () => {
     dispatch({ type: CLEAR });
   };
-
+  const moveDown = id => {
+    if (id >= state.todos.length - 1) return;
+    else {
+      let newTodos = [...state.todos];
+      let todo = newTodos[id + 1];
+      newTodos[id + 1] = newTodos[id];
+      newTodos[id] = todo;
+      dispatch({ type: DOWN, payload: newTodos });
+    }
+  };
+  const moveUp = id => {
+    if (id <= 0) return;
+    else {
+      let newTodos = [...state.todos];
+      let todo = newTodos[id - 1];
+      newTodos[id - 1] = newTodos[id];
+      newTodos[id] = todo;
+      dispatch({ type: UP, payload: newTodos });
+    }
+  };
   return (
     <TodoContext.Provider
       value={{
@@ -43,7 +64,9 @@ export const TodoState = props => {
         updateTodo,
         editTodo,
         editedTodo: state.editedTodo,
-        clearTodo
+        clearTodo,
+        moveDown,
+        moveUp
       }}
     >
       {props.children}

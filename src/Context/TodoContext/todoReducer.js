@@ -3,7 +3,9 @@ import {
   DELETE_TODO,
   UPDATE_TODO,
   EDIT_TODO,
-  CLEAR
+  CLEAR,
+  DOWN,
+  UP
 } from "../keys";
 
 export default (state, { type, payload }) => {
@@ -28,6 +30,16 @@ export default (state, { type, payload }) => {
       return {
         ...state,
         editedTodo: null
+      };
+    case DOWN:
+      return {
+        ...state,
+        todos: [...payload]
+      };
+    case UP:
+      return {
+        ...state,
+        todos: [...payload]
       };
     default:
       return state;
