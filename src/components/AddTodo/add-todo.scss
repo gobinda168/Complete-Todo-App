@@ -1,0 +1,44 @@
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+
+  .id {
+    text-align: center;
+    outline: none;
+    border: 2px solid rgb(93, 0, 86);
+    font: bolder x-large "Roboto";
+    width: 80px;
+    margin-right: 1em;
+  }
+
+  input[type="text"] {
+    margin-right: 5px;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid;
+
+    &:focus {
+      outline: none;
+      //   border: none;
+      box-shadow: 0 0 10px #4e4e4e;
+      border-color: rgb(110, 1, 114);
+    }
+  }
+
+  input[type="submit"] {
+    padding: 10px 40px;
+    border: 2px solid rgb(102, 1, 97);
+    background: rgb(102, 1, 97);
+    outline: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-family: "Roboto";
+
+    &:hover {
+      color: rgb(102, 1, 97);
+      background: white;
+    }
+  }
+}
