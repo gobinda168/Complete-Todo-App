@@ -30,7 +30,7 @@ export const AddTodo = () => {
       <form onSubmit={handleSubmit}>
         <input
           className="id"
-          value={editedTodo ? editedTodo.id : todos.length + 1 || ""}
+          value={editedTodo ? todos.indexOf(editedTodo) + 1 : todos.length + 1}
           readOnly
         />
 

@@ -6,8 +6,8 @@ export const Todos = () => {
   const { todos } = useContext(TodoContext);
   return (
     <div className="todos">
-      {todos.map(todo => (
-        <Todo todo={todo} key={todo.id} />
+      {todos.map((todo, index) => (
+        <Todo todo={todo} i={index} key={todo.id} />
       ))}
     </div>
   );

@@ -3,15 +3,22 @@
   justify-content: space-between;
   flex-direction: row;
   padding: 0px 10px;
-  border-left: 5px solid #353535;
   text-transform: uppercase;
-  font-family: "Roboto";
-  font-weight: bolder;
-  font-size: larger;
-  margin-left: 5em;
-  margin-right: 4em;
-  margin-bottom: 10px;
-  .line{
+  font: bolder larger "Roboto";
+
+  .id {
+    text-align: center;
+    border: 2px solid rgb(93, 0, 86);
+    width: 40px;
+
+    &:hover {
+      background: rgb(93, 0, 86);
+      color: white;
+    }
+
+  }
+
+  .line {
     text-decoration: line-through;
     color: #525252;
   }
@@ -19,15 +26,14 @@
   .actions {
     display: flex;
     color: rgb(36, 36, 36);
-    // justify-self: end;
-    justify-content: space-around;
 
     .btn {
       background: none;
       border: none;
       margin: 0px 1em;
       outline: none;
-      &:hover{
+
+      &:hover {
         color: rgb(112, 0, 93);
       }
     }
@@ -36,6 +42,8 @@
 
 
   .item {
+
+    // justify-items: start;
     &:hover {
       cursor: pointer;
     }
