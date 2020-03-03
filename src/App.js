@@ -8,7 +8,7 @@ function App() {
   return (
     <TodoState>
       <div className="App">
-        <AddTodo  />
+        <AddTodo />
         <Todos />
       </div>
     </TodoState>

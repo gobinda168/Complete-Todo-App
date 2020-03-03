@@ -3,7 +3,7 @@ import { TodoContext } from "../../Context/TodoContext/TodoContext";
 import "./add-todo.scss";
 
 export const AddTodo = () => {
-  const [todo, setTodo] = useState({ id: null, task: "" });
+  const [todo, setTodo] = useState({ id: null, title: "" });
   const [submit, setSubmit] = useState(false);
   const { addTodo, editedTodo, updateTodo, todos, clearTodo } = useContext(
     TodoContext
@@ -11,7 +11,7 @@ export const AddTodo = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (editedTodo) {
-      updateTodo({ ...editedTodo, task: todo.task });
+      updateTodo({ ...editedTodo, title: todo.title });
       clearTodo();
     } else {
       addTodo({ ...todo, id: todos.length + 1 });
@@ -21,7 +21,7 @@ export const AddTodo = () => {
   useEffect(() => {
     if (editedTodo) setTodo(editedTodo);
     return () => {
-      setTodo({ id: null, task: "" });
+      setTodo({ id: null, title: "" });
       setSubmit(false);
     };
   }, [editedTodo, submit]);
@@ -36,16 +36,16 @@ export const AddTodo = () => {
 
         <input
           type="text"
-          name="task"
-          id="task"
-          value={todo.task}
-          onChange={e => setTodo({ ...todo, task: e.currentTarget.value })}
+          name="title"
+          id="title"
+          value={todo.title}
+          onChange={e => setTodo({ ...todo, title: e.currentTarget.value })}
           placeholder="ADD TODO ITEM..."
         />
         <input
           type="submit"
           value={editedTodo ? "Update" : "Add"}
-          disabled={todo.task ? false : true}
+          disabled={todo.title ? false : true}
         />
       </form>
     </div>

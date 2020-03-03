@@ -5,3 +5,5 @@ export const EDIT_TODO = "EDIT_TODO";
 export const CLEAR = "CLEAR";
 export const DOWN = "DOWN";
 export const UP = "UP";
+export const INIT = "INIT";
+export const SETID = "SETID";

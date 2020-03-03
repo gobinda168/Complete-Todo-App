@@ -5,11 +5,17 @@ import {
   EDIT_TODO,
   CLEAR,
   DOWN,
-  UP
+  UP,
+  INIT,
+  SETID
 } from "../keys";
 
 export default (state, { type, payload }) => {
   switch (type) {
+    case SETID:
+      return { ...state, currentPage: payload };
+    case INIT:
+      return { ...state, todos: [...payload] };
     case ADD_TODO_ITEM:
       return { ...state, todos: [...state.todos, payload] };
     case DELETE_TODO:

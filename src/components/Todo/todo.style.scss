@@ -2,10 +2,21 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  ;
-  padding: 0px 10px;
+  padding: 0px 30px;
   text-transform: uppercase;
   font: bolder larger "Roboto";
+
+  .task-completed {
+    text-align: center;
+    border: 2px solid #525252;
+    width: 40px;
+    background: #525252;
+    color: #a0a0a0;
+  }
+
+  .done-icon {
+    color: white;
+  }
 
   .id {
     text-align: center;
@@ -21,6 +32,8 @@
 
   .line {
     text-decoration: line-through;
+    // align-self: center;
+    // font: bolder small "Roboto";
     color: #525252;
   }
 
