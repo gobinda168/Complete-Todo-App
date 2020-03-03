@@ -15,12 +15,10 @@ import {
 } from "../keys";
 
 export const TodoState = props => {
-  const fetchTodos = async n => {
+  const fetchTodos = async () => {
     // console.log(n);
-    let start = n * 10 - 10,
-      end = n * 10;
     const { data } = await axios(`https://jsonplaceholder.typicode.com/todos`);
-    dispatch({ type: INIT, payload: data.slice(start || 0, end || 10) });
+    dispatch({ type: INIT, payload: data });
   };
   useEffect(() => {
     fetchTodos();
@@ -28,7 +26,8 @@ export const TodoState = props => {
   const initialState = {
     editedTodo: null,
     todos: [],
-    currentPage: 0
+    currentPage: 0,
+    itemPerPage: 10
   };
   const [state, dispatch] = useReducer(todoReducer, initialState);
 
@@ -85,7 +84,8 @@ export const TodoState = props => {
         moveUp,
         fetchTodos,
         setId,
-        currentPage: state.currentPage
+        currentPage: state.currentPage,
+        itemPerPage: state.itemPerPage
       }}
     >
       {props.children}

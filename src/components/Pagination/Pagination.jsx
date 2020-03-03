@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { TodoContext } from "../../Context/TodoContext/TodoContext";
 
 export const Pagination = ({ index }) => {
-  const { fetchTodos, setId } = useContext(TodoContext);
+  const { setId } = useContext(TodoContext);
   const handleClick = () => {
-    fetchTodos(index + 1);
+    // fetchTodos(index + 1);
     setId(index);
   };
   return (

@@ -33,7 +33,6 @@ export const AddTodo = () => {
           value={editedTodo ? todos.indexOf(editedTodo) + 1 : todos.length + 1}
           readOnly
         />
-
         <input
           type="text"
           name="title"

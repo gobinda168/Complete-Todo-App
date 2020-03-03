@@ -2,10 +2,11 @@ import React, { useContext, useState } from "react";
 import "./todo.style.scss";
 import { TodoContext } from "../../Context/TodoContext/TodoContext";
 export const Todo = ({ todo, i }) => {
-  const { removeTodo, editTodo, moveDown, moveUp, currentPage } = useContext(
+  const { removeTodo, editTodo, moveDown, moveUp, itemPerPage, currentPage } = useContext(
     TodoContext
   );
   const [todoItemClicked, setTodoItemClicked] = useState(false);
+  const newId = currentPage * itemPerPage + i + 1;
   return (
     <div className="todo-item">
       <p
@@ -15,7 +16,7 @@ export const Todo = ({ todo, i }) => {
         {todoItemClicked ? (
           <i className="material-icons done-icon">done_all</i>
         ) : (
-          currentPage * 10 + i+1
+          newId
         )}
       </p>
       <p
@@ -32,10 +33,10 @@ export const Todo = ({ todo, i }) => {
         <button className="btn" onClick={() => editTodo(todo)}>
           <i className="material-icons">edit</i>
         </button>
-        <button className="btn" onClick={() => moveUp(i)}>
+        <button className="btn" onClick={() => moveUp(newId - 1)}>
           <i className="material-icons">arrow_upward</i>
         </button>
-        <button className="btn" onClick={() => moveDown(i)}>
+        <button className="btn" onClick={() => moveDown(newId - 1)}>
           <i className="material-icons">arrow_downward</i>
         </button>
       </div>
