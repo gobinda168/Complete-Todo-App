@@ -38,6 +38,7 @@ export const Todos = () => {
     <div className="todos">
       <TodoHeader
         sort={sort}
+        sorted={isSorted}
         onSearch={e => setSearch(e.currentTarget.value)}
       />
       <div className="todo-items">
