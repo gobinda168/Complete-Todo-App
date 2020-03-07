@@ -1,8 +1,8 @@
 .todo-item {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 4fr 2fr;
   justify-content: space-between;
-  padding: 0px 30px;
+  margin-left: 2em;
   text-transform: uppercase;
   font: bolder larger "Roboto";
 
@@ -55,6 +55,8 @@
 
 
   .item {
+    padding-right: 2em;
+
     &:hover {
       cursor: pointer;
     }

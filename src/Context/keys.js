@@ -7,3 +7,4 @@ export const DOWN = "DOWN";
 export const UP = "UP";
 export const INIT = "INIT";
 export const SETID = "SETID";
+export const SORT_TODOS = 'SORT_TODOS'

@@ -7,17 +7,20 @@ import {
   DOWN,
   UP,
   INIT,
-  SETID
+  SETID,
+  SORT_TODOS
 } from "../keys";
 
 export default (state, { type, payload }) => {
   switch (type) {
+    case SORT_TODOS:
+      return { ...state, sorted: payload };
     case SETID:
       return { ...state, currentPage: payload };
     case INIT:
       return { ...state, todos: [...payload] };
     case ADD_TODO_ITEM:
-      return { ...state, todos: [...state.todos, payload] };
+      return { ...state, todos: [payload, ...state.todos] };
     case DELETE_TODO:
       return { ...state, todos: state.todos.filter(t => t.id !== payload) };
     case UPDATE_TODO:

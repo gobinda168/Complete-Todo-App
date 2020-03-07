@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
 import "./todo.style.scss";
 import { TodoContext } from "../../Context/TodoContext/TodoContext";
+import { Actions } from "../Actions/Actions";
 export const Todo = ({ todo, i }) => {
-  const { removeTodo, editTodo, moveDown, moveUp, itemPerPage, currentPage } = useContext(
-    TodoContext
-  );
-  const [todoItemClicked, setTodoItemClicked] = useState(false);
+  const { itemPerPage, currentPage } = useContext(TodoContext);
+  const [todoItemClicked, setTodoItemClicked] = useState(todo.completed);
   const newId = currentPage * itemPerPage + i + 1;
   return (
     <div className="todo-item">
@@ -25,22 +24,7 @@ export const Todo = ({ todo, i }) => {
       >
         {todo.title.substring(0, 30)}
       </p>
-      {/* {!todoItemClicked && ( */}
-      <div className="actions">
-        <button className="btn" onClick={() => removeTodo(todo.id)}>
-          <i className="material-icons delete">delete</i>
-        </button>
-        <button className="btn" onClick={() => editTodo(todo)}>
-          <i className="material-icons">edit</i>
-        </button>
-        <button className="btn" onClick={() => moveUp(newId - 1)}>
-          <i className="material-icons">arrow_upward</i>
-        </button>
-        <button className="btn" onClick={() => moveDown(newId - 1)}>
-          <i className="material-icons">arrow_downward</i>
-        </button>
-      </div>
-      {/* )} */}
+      <Actions todo={todo} newId={newId} />
     </div>
   );
 };

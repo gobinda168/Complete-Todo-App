@@ -1,0 +1,20 @@
+.pbtn {
+    background: white;
+    border: 1px solid rgb(116, 0, 62);
+    color: rgb(116, 0, 62);
+    padding: 5px;
+    margin-right: .3em;
+    width: 2em;
+    outline: none;
+    transition: .5s ease-in-out;
+
+    &:hover {
+        background: rgb(116, 0, 62);
+        color: white;
+    }
+}
+
+.cbtn {
+    background: rgb(116, 0, 62);
+    color: white;
+}

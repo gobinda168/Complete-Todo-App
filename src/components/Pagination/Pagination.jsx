@@ -1,15 +1,14 @@
-import React, { useContext } from "react";
-import { TodoContext } from "../../Context/TodoContext/TodoContext";
-
-export const Pagination = ({ index }) => {
-  const { setId } = useContext(TodoContext);
-  const handleClick = () => {
-    // fetchTodos(index + 1);
-    setId(index);
-  };
+import React from "react";
+import "./pagination.style.scss";
+export const Pagination = ({ index, setId, currentPage }) => {
   return (
     <div>
-      <button onClick={() => handleClick()}>{index + 1}</button>
+      <button
+        className={currentPage === index ? "cbtn pbtn" : "pbtn"}
+        onClick={() => setId(index)}
+      >
+        {index + 1}
+      </button>
     </div>
   );
 };

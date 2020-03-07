@@ -11,27 +11,34 @@ import {
   UP,
   DOWN,
   INIT,
-  SETID
+  SETID,
+  SORT_TODOS
 } from "../keys";
 
 export const TodoState = props => {
-  const fetchTodos = async () => {
-    // console.log(n);
-    const { data } = await axios(`https://jsonplaceholder.typicode.com/todos`);
-    dispatch({ type: INIT, payload: data });
-  };
-  useEffect(() => {
-    fetchTodos();
-  }, []);
   const initialState = {
     editedTodo: null,
     todos: [],
     currentPage: 0,
-    itemPerPage: 10
+    itemPerPage: 10,
+    sorted: false
   };
   const [state, dispatch] = useReducer(todoReducer, initialState);
-
+  useEffect(() => {
+    fetchTodos(state.sorted);
+  }, [state.sorted]);
   //?Actions for reducer
+  const sortTodos = sort => {
+    dispatch({ type: SORT_TODOS, payload: sort });
+  };
+  const fetchTodos = async sorted => {
+    // console.log(n);
+    const { data } = await axios(`https://jsonplaceholder.typicode.com/todos`);
+    const newData = sorted
+      ? await data.sort(a => (a.completed ? 1 : -1))
+      : data;
+    dispatch({ type: INIT, payload: newData });
+  };
   const setId = i => {
     dispatch({ type: SETID, payload: i });
   };
@@ -85,7 +92,8 @@ export const TodoState = props => {
         fetchTodos,
         setId,
         currentPage: state.currentPage,
-        itemPerPage: state.itemPerPage
+        itemPerPage: state.itemPerPage,
+        sortTodos
       }}
     >
       {props.children}

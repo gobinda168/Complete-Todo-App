@@ -1,18 +1,10 @@
-import React from "react";
-import "./App.css";
-import { TodoState } from "./Context/TodoContext/TodoState";
-import { Todos } from "./components/Todos/Todos";
-import { AddTodo } from "./components/AddTodo/AddTodo";
+import React from 'react'
+import { TodoApp } from './apps/Todo/Todo'
 
-function App() {
+export const App = () => {
   return (
-    <TodoState>
-      <div className="App">
-        <AddTodo />
-        <Todos />
-      </div>
-    </TodoState>
-  );
+    <div>
+      <TodoApp />
+    </div>
+  )
 }
-
-export default App;
