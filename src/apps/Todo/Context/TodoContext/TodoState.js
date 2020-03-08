@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 import { TodoContext } from "./TodoContext";
 import todoReducer from "./todoReducer";
+import { toast } from "react-toastify";
 import axios from "axios";
 import {
   ADD_TODO_ITEM,
@@ -29,6 +30,7 @@ export const TodoState = props => {
   }, [state.sorted]);
   //?Actions for reducer
   const sortTodos = sort => {
+    toast.success(`Tasks sorted successfully`);
     dispatch({ type: SORT_TODOS, payload: sort });
   };
   const fetchTodos = async sorted => {
@@ -43,12 +45,15 @@ export const TodoState = props => {
     dispatch({ type: SETID, payload: i });
   };
   const addTodo = t => {
+    toast.success(`Task added successfully`);
     dispatch({ type: ADD_TODO_ITEM, payload: t });
   };
   const removeTodo = id => {
+    toast.error(`Task removed successfully`);
     dispatch({ type: DELETE_TODO, payload: id });
   };
   const updateTodo = todo => {
+    toast.success(`Task updated successfully`);
     dispatch({ type: UPDATE_TODO, payload: todo });
   };
   const editTodo = todo => {

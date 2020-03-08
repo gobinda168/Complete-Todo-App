@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useRef, useState } from "react";
 import { TodoContext } from "../../Context/TodoContext/TodoContext";
 import "./add-todo.scss";
-
 export const AddTodo = () => {
   const [todo, setTodo] = useState({ id: null, title: "" });
   const [submit, setSubmit] = useState(false);
