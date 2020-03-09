@@ -1,0 +1,16 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "author": "Gobinda Das",
+  "license": "MIT",
+  "dependencies": {
+    "config": "^3.3.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.3"
+  }
+}
